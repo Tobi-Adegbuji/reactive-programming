@@ -1,0 +1,18 @@
+
+
+
+Reactor implements Publisher twice.
+The classes are:
+
+Mono<T> & Flux<T>
+
+Mono can emit only 0 or 1 item.
+Subscriber can call for 15 items from Mono but
+it will only receive 1.
+
+Flux can emit 0 or N items. Flux is an infinite stream.
+
+What is the need of Mono if you already have Flux?
+The answer is convenience. When you already know that
+you will receive only 1 item (Retrieving count of records from
+a DB), then Mono can be used.

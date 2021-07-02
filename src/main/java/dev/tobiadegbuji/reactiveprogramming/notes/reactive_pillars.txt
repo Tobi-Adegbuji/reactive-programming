@@ -1,0 +1,54 @@
+There are 3 pillars that characterize reactive programming.
+
+1) Asynchronous Data Processing
+2) Non-Blocking
+3) Uses Declarative/Functional Style
+
+
+Reactive Streams is an interface.
+There are several implementations such as
+- Akka
+- rxJava2
+- Reactor <-- Great Documentation
+
+
+
+Reactive programming is based on Observable Pattern.
+
+1) Subscriber subscribes to the publisher by passing an instance of subscriber
+to the publisher.
+
+2) Publisher then hands over a Subscription Object to the Subscriber, using
+the onSubscribe method defined in Subscriber interface.
+
+3) Through the subscription object the subscriber can request for data or even cancel when
+he does not want any more updates.
+
+4) The publisher can use the onNext method to provide data when the subscriber
+sends a request via passing the Subscription Object through the request method.
+If publisher has 5 items it needs to provide
+to the subscriber it wil keep calling the onNext method for each item. Kind if like
+an iterator.
+
+5) When the publisher has emitted all the items to the subscriber, it can call the
+onComplete method is done to notify the subscriber that it is finished.
+
+6) If a publisher encounters an error, it can pass the error details to the subscriber via
+the onError method.
+
+
+Synonyms for publisher and subscriber:
+
+Publisher
+----------
+- source
+- observable
+- upstream
+- producer
+
+Subscriber
+----------
+- sink
+- observer
+- downstream
+- consumer
