@@ -3,7 +3,7 @@ package dev.tobiadegbuji.reactiveprogramming.section_1;
 import dev.tobiadegbuji.reactiveprogramming.utils.Utils;
 import reactor.core.publisher.Mono;
 
-public class Mono_Subscribe {
+public class MonoSubscribe {
 
     public static void main(String[] args) {
 

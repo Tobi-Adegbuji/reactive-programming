@@ -4,7 +4,7 @@ import dev.tobiadegbuji.reactiveprogramming.utils.Utils;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
-public class SupplierRefactoring {
+public class MonoSupplierRefactoring {
 
 
     public static void main(String[] args) {

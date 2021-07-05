@@ -2,7 +2,7 @@ package dev.tobiadegbuji.reactiveprogramming.section_1;
 
 import reactor.core.publisher.Mono;
 
-public class Mono_Just {
+public class MonoJust {
 
 
     public static void main(String[] args) {

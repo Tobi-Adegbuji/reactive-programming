@@ -5,7 +5,7 @@ import reactor.core.publisher.Mono;
 
 import java.util.concurrent.Callable;
 
-public class FromCallable {
+public class MonoFromCallable {
 
     public static void main(String[] args) {
 
