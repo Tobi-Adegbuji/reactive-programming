@@ -24,4 +24,13 @@ public class Utils {
         return faker;
     }
 
+    //TODO: What is @SneakyThrows?
+    public static void sleepSeconds(int seconds){
+        try {
+            Thread.sleep(seconds);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

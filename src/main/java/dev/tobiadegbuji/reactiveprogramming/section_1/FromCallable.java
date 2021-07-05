@@ -24,9 +24,9 @@ public class FromCallable {
         Mono<String> mono = Mono.fromCallable(stringCallable);
 
         //Subscribing as seen below will only execute getName static method
-        mono.subscribe(
-                Utils.onNext()
-        );
+//        mono.subscribe(
+//                Utils.onNext()
+//        );
 
     }
 
