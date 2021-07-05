@@ -11,9 +11,9 @@ public class MonoEmptyOrError {
 
         userRepo(3)
                 .subscribe(
-                        Utils.onNext(),
-                        Utils.onError(),
-                        Utils.onComplete()
+                        Utils.onNext(), //What to do with each item returned
+                        Utils.onError(), //What to when there is an error
+                        Utils.onComplete() //What to do when complete transaction of items are done
                 );
 
 
