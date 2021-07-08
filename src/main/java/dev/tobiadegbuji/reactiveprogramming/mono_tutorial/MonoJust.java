@@ -1,4 +1,4 @@
-package dev.tobiadegbuji.reactiveprogramming.section_1;
+package dev.tobiadegbuji.reactiveprogramming.mono_tutorial;
 
 import reactor.core.publisher.Mono;
 
