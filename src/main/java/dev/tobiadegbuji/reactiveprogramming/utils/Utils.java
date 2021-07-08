@@ -27,7 +27,7 @@ public class Utils {
     //TODO: What is @SneakyThrows?
     public static void sleepSeconds(int seconds){
         try {
-            Thread.sleep(seconds);
+            Thread.sleep(seconds * 1000L);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
