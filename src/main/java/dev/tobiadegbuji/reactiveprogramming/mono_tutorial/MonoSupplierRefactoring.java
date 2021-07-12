@@ -31,13 +31,16 @@ public class MonoSupplierRefactoring {
 
         System.out.println("Enter GetName Method");
 
-        //fromSupplier BUILDS the pipeline. It does not EXECUTE it unless someone subscribes. (Like terminal operations in Strings)
+        //fromSupplier BUILDS the pipeline. It does not EXECUTE it unless someone subscribes. (Like terminal operations in Steams)
         //Building the pipeline does not take much time. Executing will take at least 3 seconds for obvious reasons...
-        //Seems that fromSupplier is lazily executed
+        //Seems that fromSupplier is lazily executed...
+
         return Mono.fromSupplier(() -> {
                     System.out.println("Generating Name....");
                     Utils.sleepSeconds(3000);
-                    return Utils.faker().funnyName().name();
+                    return Utils.faker()
+                            .funnyName()
+                            .name();
                 }
         ).map(String::toUpperCase);
     }
