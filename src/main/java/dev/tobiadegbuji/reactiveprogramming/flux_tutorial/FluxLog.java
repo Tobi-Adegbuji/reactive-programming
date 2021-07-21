@@ -10,7 +10,8 @@ public class FluxLog {
 
         //You can use log() to
 
-        Flux.range(1, 5)
+        Flux.range(1, 5
+        )
                 .log()
                 //Map subscribes to the flux
                 .map(i -> Utils.faker().funnyName().name())
