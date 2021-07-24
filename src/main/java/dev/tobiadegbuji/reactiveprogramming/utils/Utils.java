@@ -33,4 +33,9 @@ public class Utils {
         }
     }
 
+
+    public static DefaultSubscriber getSubscriber(String name){
+        return new DefaultSubscriber(name);
+    }
+
 }
