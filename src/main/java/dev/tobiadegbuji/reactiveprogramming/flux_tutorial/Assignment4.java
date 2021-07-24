@@ -26,6 +26,7 @@ public class Assignment4 {
                 () -> 0,
                 (state, sink) -> getLines(sink,state,lines)
         )
+                .take(3)
                 .subscribe(Utils.getSubscriber(""));
 
     }
