@@ -47,9 +47,10 @@ public class FluxSubscriptionObject {
         atomicReference.get().request(3);
         Utils.sleepSeconds(10);
         System.out.println("Going to cancel");
-        //After cancellation, notice no more request will work.
+        //After cancellation, the publisher will not emit anymore items
         atomicReference.get().cancel();
         Utils.sleepSeconds(10);
+        //No longer will emit items
         atomicReference.get().request(4);
         Utils.sleepSeconds(2000);
 
