@@ -4,6 +4,8 @@ import dev.tobiadegbuji.reactiveprogramming.utils.Utils;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.FluxSink;
 
+import java.util.function.Consumer;
+
 public class FluxCreate {
 
 
@@ -11,13 +13,23 @@ public class FluxCreate {
 
         //Flux Create allows you to determine when to emit data using a Flux Sink.
         //Flux Sink allows you to determine when to throw an error, when to emit, and when to complete.
-        Flux.create(FluxCreate::fluxActions)
+        //This is also thread safe you, can call the publisher concurrently
+
+
+        Consumer<FluxSink<Object>> fluxSinkConsumer = FluxCreate::fluxActions;
+
+
+        Flux.create(fluxSinkConsumer)
                 .subscribe(Utils.getSubscriber("Sub"));
+
+
 
     }
 
     private static void fluxActions(FluxSink<Object> fluxSink) {
         //Lets keep generating country names until Canada is mentioned.
+
+        String thread = Thread.currentThread().getName();
 
         String countryName = "";
 
@@ -27,7 +39,7 @@ public class FluxCreate {
 //            if (countryName.equalsIgnoreCase("canada"))
 //                break;
 
-            fluxSink.next(countryName);
+            fluxSink.next(thread + ": " + countryName);
         }
 
         fluxSink.complete();
