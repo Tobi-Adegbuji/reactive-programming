@@ -1,0 +1,8 @@
+A cold publisher only emits specific data for a subscribe.
+Ex: Netflix Streaming: Netflix is the publisher and the show does not start playing until someone "subscribes to the show".
+To emit data, the publisher needs a subscriber.
+
+
+A hot publisher means you have one data producer for all the subscribers.
+Ex: TV Channel: A tv channel will be on at a certain time. Subscribers need to tune in to watch the show.
+The publisher (tv channel) does not need anyone to subscribe to it to emit data.

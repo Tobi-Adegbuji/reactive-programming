@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.ToString;
 import reactor.core.publisher.Flux;
 
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -16,11 +17,18 @@ public class FlatMapOperator {
     public static void main(String[] args) {
 
         UserService.getUsers()
-                .flatMap(user -> OrderService.getOrders(user.getUserId())) //Internally subscribes to all publishers returned and flattens them
+                //.flatMap(user -> OrderService.getOrders(user.getUserId())) //Internally subscribes to all publishers returned and flattens them
+                .concatMap(user -> OrderService.getOrders(user.getUserId()).log().delayElements(Duration.ofSeconds(1)))
                 .filter(purchaseOrder -> Double.parseDouble(purchaseOrder.getPrice()) > 50.0)
+                .doOnNext((purchaseOrder) -> System.out.println(" "))
                 .subscribe(Utils.getSubscriber());
 
+
+        Utils.sleepSeconds(100);
+
     }
+
+    //YOU CAN ALSO USE CONTACT MAP. concatMap ensures that the onComplete signal is called for every publisher
 
 
 }
@@ -38,7 +46,6 @@ class UserService{
 
 
 class OrderService {
-
     public static Map<Integer, List<PurchaseOrder>> db = new HashMap<>();
 
     static {
