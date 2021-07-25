@@ -30,6 +30,8 @@ public class HotPublish {
         //Note: if a subscriber signals onComplete before another subscriber subscribes to the same publisher, then a REQ will be made to the publisher again
         //A REQ is not made to the publisher when another subscriber subscribes while another subscriber is still streaming and has not signaled onComplete yet
 
+        //This makes this publisher HOT/COLD
+
     }
 
     private static Stream<String> getMovie(){
