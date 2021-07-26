@@ -18,7 +18,6 @@ public class InventoryService{
         db.put("Automotive", 100d);
     }
 
-
     public Consumer<PurchaseOrder> subscribeOrderStream(){
         return
                 p -> db.computeIfPresent(p.getCategory(), (key, currentVal) -> currentVal - p.getQuantity());
