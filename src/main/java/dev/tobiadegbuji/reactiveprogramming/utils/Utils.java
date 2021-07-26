@@ -26,13 +26,16 @@ public class Utils {
 
     //TODO: What is @SneakyThrows?
     public static void sleepSeconds(int seconds){
+      sleepMilliSecs(seconds * 1000);
+    }
+
+    public static void sleepMilliSecs(int milliSeconds){
         try {
-            Thread.sleep(seconds * 1000L);
+            Thread.sleep(milliSeconds);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
-
 
     public static DefaultSubscriber getSubscriber(String name){
         return new DefaultSubscriber(name);
