@@ -15,9 +15,10 @@ public class ParallelEmissionOfItems {
         List<Integer> syncList = Collections.synchronizedList(list);
 
         Flux.range(1, 1000)
-                .parallel(2) //parallel() returns a parallel flux. Each item will be emitted on different threads.
+                .parallel(4) //parallel() returns a parallel flux. Each item will be emitted on different threads. You can determine amount of threads used by passing num as arg
                 .runOn(Schedulers.boundedElastic()) //Choose the thread scheduler thread pool you want to use.
-//                .doOnNext(i -> printThreadName("sub onNext: " + i)) //Lets say this is an IO intensive task
+                .doOnNext(i -> printThreadName("sub onNext: " + i)) //Lets say this is an IO intensive task
+                .sequential() //Use sequential to convert a Parallel flux back to a normal flux. This enables you to use subscribeOn and publishOn methods again.
                 .subscribe(syncList::add); //lets say this is a CPU intensive task
 
         Utils.sleepSeconds(5);
