@@ -1,0 +1,8 @@
+From the definitions we just provided, we can see that
+multithreading programming is all about concurrent execution of different functions.
+Async programming is about non-blocking execution between functions,
+and we can apply async with single-threaded or multithreaded programming.
+
+So, multithreading is one form of asynchronous programming.
+
+Again, async can be applied with multi-threaded programs OR single -threaded.

@@ -21,7 +21,7 @@ to the publisher.
 2) Publisher then hands over a Subscription Object to the Subscriber, using
 the onSubscribe method defined in Subscriber interface.
 
-3) Through the subscription object the subscriber can request for data or even cancel when
+3) Through the subscription object, the subscriber can request for data or even cancel when
 he does not want any more updates.
 
 4) The publisher can use the onNext method to provide data when the subscriber
